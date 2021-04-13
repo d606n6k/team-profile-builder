@@ -34,4 +34,11 @@ describe("getName()", () => {
 // getId()
 // getEmail()
 // getRole()—returns 'Employee'
+describe("getRole()", () => {
+    it("should return 'Employee'", () => {
+        const name = "William";
+        const emp = new Employee(name, 1, "will@test.com");
+        expect(actual).toBe("Employee");
+    })
+    })
 });
