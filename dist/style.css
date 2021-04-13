@@ -1,0 +1,24 @@
+.jumbo-control{
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: #e84756;
+    color: white;
+}
+
+.card {
+    margin: 4px;
+    padding: 0;
+}
+
+.card-title {
+    background-color: #82B1FE;
+    color: white;
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+.card-subtitle {
+    background-color: #82B1FE;
+    color: white;
+    padding: 10px;
+}
