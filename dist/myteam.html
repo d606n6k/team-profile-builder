@@ -1,49 +1,4 @@
-// import the dependencies
-const fs = require("fs");
-const inquirer = require('inquirer');
-const path = require("path");
-const manager = require("./lib/Manager");
-const engineer = require("./lib/Engineer");
-const intern = require("./lib/Intern");
 
-// create a function call managerInit(); 
-function managerInit(){
-    // prompt user for manager infos
-    inquirer
-    .prompt([
-        {
-            type: 'input',
-            message: 'What is your name?',
-            name: 'managerName',
-        },
-        {
-            type: 'input',
-            message: 'What is your employee ID?',
-            name: 'managerId',
-        },
-        {
-            type: 'input',
-            message: 'What is your work email address?',
-            name: 'managerEmail',
-        },
-        {
-            type: 'input',
-            message: 'What is your officeNumber?',
-            name: 'managerOffice',
-        } 
-    ])
-    .then((data) => {
-    const htmlStuff = createHtml(data);
-    const filename = `./dist/myteam.html`;
-    fs.writeFile(filename, htmlStuff, (err) =>
-        err ? console.log(err) : console.log('Success!')
-    );
-    }); 
-};
-
-// create the html output
-function createHtml(){
-    const htmlOutput =`
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,16 +70,4 @@ function createHtml(){
     </div>
 </body>
 </html>
-    `;
-    return htmlOutput;
-};
-
-// initialize the code
-// function init(){
-//     // prompt user
-//     // run the manager to start
-//     // managerInit();
-
-// }
-
-managerInit();
+    
