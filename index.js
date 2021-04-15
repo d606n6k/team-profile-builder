@@ -6,7 +6,7 @@ const manager = require("./lib/Manager");
 const engineer = require("./lib/Engineer");
 const intern = require("./lib/Intern");
 
-// create a function call managerInit(); 
+// ask the team manager what their info is
 function managerInit(){
     // prompt user for manager infos
     inquirer
@@ -36,12 +36,10 @@ function managerInit(){
     const htmlStuff = createHtml(data);
     const filename = `./dist/myteam.html`;
     fs.writeFile(filename, htmlStuff, (err) =>
-        err ? console.log(err) : console.log('Success!')
+        err ? console.log(err) : console.log('')
     );
     exit();
     }); 
-
-    
 };
 
 // create the html output
@@ -72,7 +70,7 @@ function createHtml(answers){
                 <h6 class="card-subtitle mb-2"><i class="icon-control fas fa-camera"></i>Team Manager</h6>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">${answers.managerId}</li>
+                        <li class="list-group-item">Employee ID:${answers.managerId}</li>
                         <li class="list-group-item">Email Address:<a href="mailto:${answers.managerEmail}"> ${answers.managerEmail}</a></li>
                         <li class="list-group-item">Office Number: ${answers.managerOffice}</li>
                       </ul>
@@ -84,30 +82,7 @@ function createHtml(answers){
 
 };
 
-function exit(){
-    inquirer
-        .prompt([
-            {
-                type: 'list',
-                message: 'Would you like to add an Engineer or an Intern to the team?',
-                name: 'teamChoice',
-                choices: [
-                    'Engineer',
-                    'Intern',
-                    'None'
-                ],
-            },
-        ]).then((answers) => {
-            if(answers.teamChoice === 'Engineer'){
-                engineerInit(); 
-            } else if (answers.teamChoice === 'Intern'){
-                internInit();
-            } else {
-                noMoreTeam();
-            }
-        })
-};
-
+// create the engineer card and write it to the myteam.html file
 function engineerInit(){
 
     inquirer
@@ -139,8 +114,8 @@ function engineerInit(){
         //     err ? console.log(err) : console.log('Success!')
         // );
         fs.appendFile(filename, htmlStuff, (err) =>
-        err ? console.log(err) : console.log('Success!'))
-        exit()
+        err ? console.log(err) : console.log(''))
+        exit();
         }); 
 
     function engCardCreate(answers){
@@ -161,6 +136,7 @@ function engineerInit(){
     }
 };
 
+// create the intern card and write it to the myteam.html file
 function internInit(){
     inquirer
     .prompt([
@@ -188,7 +164,7 @@ function internInit(){
         const htmlStuff = intCardCreate(data);
         const filename = `./dist/myteam.html`;
         fs.appendFile(filename, htmlStuff, (err) =>
-        err ? console.log(err) : console.log('Success!'))
+        err ? console.log(err) : console.log(''))
         exit();
         }); 
 
@@ -210,6 +186,7 @@ function internInit(){
     }
 }
 
+// append the closing html to the document if there are no further team members to add
 function noMoreTeam(){
 
     const htmlStuff = finishHtml();
@@ -228,6 +205,30 @@ function noMoreTeam(){
     }
 }
 
+// exit out of the engineerInit OR the internInit and ask another question
+function exit(){
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                message: 'Would you like to add an Engineer or an Intern to the team?',
+                name: 'teamChoice',
+                choices: [
+                    'Engineer',
+                    'Intern',
+                    'None'
+                ],
+            },
+        ]).then((answers) => {
+            if(answers.teamChoice === 'Engineer'){
+                engineerInit(); 
+            } else if (answers.teamChoice === 'Intern'){
+                internInit();
+            } else {
+                noMoreTeam();
+            }
+        })
+};
 managerInit();
 
 
