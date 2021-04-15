@@ -4,7 +4,7 @@
 ![Team Profile Builder Browser Image](./screenshot2.png)
 
 ## Description
-This is a simple command line application that will generate a readme.md file for your software project!
+This simple command line application will prompt the user to build out their team! The user will be prompted to select a name, an employee ID, an email address for ALL employees. In addition to name, email, and ID all Engineers will be prompted to enter their Github usernames. In addition to name, email, and ID all Interns will be prompted to enter in the school that they attend.
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
