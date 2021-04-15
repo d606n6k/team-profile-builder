@@ -67,10 +67,10 @@ function createHtml(answers){
             <!-- card 1 -->
             <div class="card col-lg" style="width: 18rem;">
                 <h5 class="card-title">${answers.managerName}</h5>
-                <h6 class="card-subtitle mb-2"><i class="icon-control fas fa-camera"></i>Team Manager</h6>
+                <h6 class="card-subtitle mb-2"><i class="icon-control fas fa-chalkboard-teacher"></i>Team Manager</h6>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Employee ID:${answers.managerId}</li>
+                        <li class="list-group-item">Employee ID: ${answers.managerId}</li>
                         <li class="list-group-item">Email Address:<a href="mailto:${answers.managerEmail}"> ${answers.managerEmail}</a></li>
                         <li class="list-group-item">Office Number: ${answers.managerOffice}</li>
                       </ul>
@@ -122,7 +122,7 @@ function engineerInit(){
         const htmlOutput =`
         <div class="card col-lg" style="width: 18rem;">
         <h5 class="card-title">${answers.engineerName}</h5>
-        <h6 class="card-subtitle mb-2"><i class="icon-control fas fa-camera"></i>Engineer</h6>
+        <h6 class="card-subtitle mb-2"><i class="icon-control fas fa-wrench"></i>Engineer</h6>
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Employee ID: ${answers.engineerId}</li>
@@ -172,7 +172,7 @@ function internInit(){
         const htmlOutput =`
         <div class="card col-lg" style="width: 18rem;">
         <h5 class="card-title">${answers.internName}</h5>
-        <h6 class="card-subtitle mb-2"><i class="icon-control fas fa-camera"></i>Engineer</h6>
+        <h6 class="card-subtitle mb-2"><i class="icon-control fas fa-user-graduate"></i>Intern</h6>
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Employee ID: ${answers.internId}</li>
@@ -192,7 +192,7 @@ function noMoreTeam(){
     const htmlStuff = finishHtml();
         const filename = `./dist/myteam.html`;
         fs.appendFile(filename, htmlStuff, (err) =>
-        err ? console.log(err) : console.log('Success!'))
+        err ? console.log(err) : console.log('Success! Your myteam.html file is ready to be viewed in the browser!'))
  
     function finishHtml(){
         const htmlOutput =`
